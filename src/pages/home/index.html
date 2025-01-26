@@ -4,8 +4,27 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="globals.css" />
         <link rel="stylesheet" href="style.css" />
+        <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('/.netlify/functions/fetch-racing-data');
+                const data = await response.json();
+                
+                if (!response.ok) throw new Error(data.error || 'Function call failed');
+                
+                console.log('Response:', data);
+                alert('Data collected and sent to Airtable successfully!');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error: ' + error.message);
+            }
+        }
+        </script>
     </head>
     <body>
+        <div class="collect-data-button" onclick="fetchData()">
+            <div class="text-wrapper">Collect Data</div>
+        </div>
         <div class="upcoming-races">
             <div class="title-wrap"><div class="text-wrapper">Upcoming Races</div></div>
             <div class="default-race-timer">
