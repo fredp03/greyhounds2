@@ -1,0 +1,313 @@
+/* ==========================================
+   1. General Layout
+   ========================================== */
+.full-screen {
+  flex-direction: column;
+  min-width: 1055px;
+  min-height: 100vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* ==========================================
+   2. Top Navigation Bar - Shared Styles
+   ========================================== */
+.property-closed,
+.property-open {
+  width: 100%;
+  height: 45px;
+  padding: 0px 20px;
+  background-color: #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  min-width: max-content;
+  transition: none;
+}
+/* ==========================================
+Buttons
+========================================== */
+
+.home-button {
+  position: relative;
+  width: 18px;
+  height: 18.73px;
+}
+
+.colapse-races, 
+.collapse-button {
+  position: relative;
+  width: 12px;
+  height: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  z-index: 3;
+}
+
+.colapse-races:hover,
+.collapse-button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* ==========================================
+   3. Top Navigation - Closed State
+   ========================================== */
+.property-closed .left-side {
+  display: flex;
+  width: 783px;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+/* ==========================================
+   4. Top Navigation - Open State
+   ========================================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+  margin-left: -30px;
+  padding-left: 30px;
+  flex: 1;
+  z-index: 2;
+  opacity: 1;
+}
+
+.navbar-content.hidden {
+  transform: scaleX(0);
+}
+
+.navbar-content.visible {
+  transform: scaleX(1);
+}
+
+/* ==========================================
+   5. Main Content Area
+   ========================================== */
+.page-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+  background-color: #ffffff;
+}
+
+/* Title Section */
+.title-section {
+  display: flex;
+  max-height: 123px;
+  height: 123px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 48px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.track-name {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  font-size: 40px;
+}
+
+/* ==========================================
+   6. Trap Data Grid
+   ========================================== */
+.table {
+  width: 1031px;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.trap {
+  flex-direction: column;
+  justify-content: center;
+  gap: 49px;
+  flex: 1;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* ==========================================
+   7. Typography & Text Styles
+   ========================================== */
+.text-wrapper {
+  position: relative;
+  width: fit-content;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.trap-AVG,
+.text-wrapper-2 {
+  position: relative;
+  width: 155px;
+  font-family: "Inter-Light", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+/* Trap specific typography */
+.trap .div {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: "Inter-LightItalic", Helvetica;
+  font-weight: 300;
+  font-style: italic;
+  color: #000000;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+/* ==========================================
+   8. Layout Components
+   ========================================== */
+.div-2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.page {
+  flex-direction: column;
+  gap: 59px;
+  padding: 0px 0px 165px;
+  flex: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 103px;
+  padding: 42px 0px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* ==========================================
+   9. Right Side Components
+   ========================================== */
+.right-side {
+  display: flex;
+  max-width: 601px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  font-size: 15px;
+}
+
+.right-side .div {
+  position: relative;
+  width: fit-content;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   10. Animation States
+   ========================================== */
+#openState,
+#closedState {
+  transition: none;
+}
+
+#openState {
+  transform-origin: initial;
+}
+
+#openState.hidden,
+#openState.visible {
+  transform: none;
+}
+
+/* ==========================================
+   11. Responsive Design
+   ========================================== */
+@media screen and (max-width: 1054px) {
+  .full-screen {
+    min-width: 100%;
+    padding: 0 10px;
+  }
+
+  .table {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .trap {
+    min-width: 300px;
+  }
+}
+
+/* ==========================================
+   12. Print Styles
+   ========================================== */
+@media print {
+  .property-closed,
+  .property-open {
+    display: none;
+  }
+
+  .full-screen {
+    min-width: 100%;
+    min-height: auto;
+  }
+}
