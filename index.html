@@ -8,12 +8,15 @@
         async function fetchData() {
             try {
                 const response = await fetch('/.netlify/functions/fetch-racing-data');
-                if (!response.ok) throw new Error('Function call failed');
                 const data = await response.json();
-                alert('Data collected successfully!');
+                
+                if (!response.ok) throw new Error(data.error || 'Function call failed');
+                
+                console.log('Response:', data);
+                alert('Data collected and sent to Airtable successfully!');
             } catch (error) {
                 console.error('Error:', error);
-                alert('Error collecting data');
+                alert('Error: ' + error.message);
             }
         }
         </script>
