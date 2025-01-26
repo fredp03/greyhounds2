@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="globals.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('/.netlify/functions/fetch-racing-data');
+                if (!response.ok) throw new Error('Function call failed');
+                const data = await response.json();
+                alert('Data collected successfully!');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error collecting data');
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div class="webpage">
+            <div class="page-info">
+                <div class="title">Test Homepage</div>
+                <div class="collect-data-button" onclick="fetchData()">
+                    <div class="text-wrapper">Collect Data</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
