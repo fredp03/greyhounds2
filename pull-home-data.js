@@ -70,6 +70,11 @@ async function fetchHtml() {
   }
 }
 
-fetchHtml();
+function collectData() {
+  console.log('Data collection initiated.');
+  fetchHtml();
+}
+
+collectData();
 
 
