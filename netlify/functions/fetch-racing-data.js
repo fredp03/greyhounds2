@@ -7,7 +7,6 @@ const AIRTABLE_API_KEY = 'paty7Qv08vE2qnSi2.093f8d0babdff82da158705528f98fb7f870
 
 exports.handler = async function(event, context) {
   try {
-    // Fetch race data
     const response = await axios.get('https://www.sportinglife.com/greyhounds/racecards');
     const $ = cheerio.load(response.data);
     const allRecords = [];
@@ -21,42 +20,54 @@ exports.handler = async function(event, context) {
           const trackId = href.split('/')[6];
           const time = link.find('span').text();
           
+          // Convert all values to strings for long text fields
           allRecords.push({
             fields: {
-              Track: trackName,
-              'Race Number': `Race ${index + 1}`,
-              ID: trackId,
-              Time: time
+              "Track": String(trackName || ''),
+              "Race Number": String(`Race ${index + 1}` || ''),
+              "ID": String(trackId || ''), 
+              "Time": String(time || '')
             }
           });
         }
       });
     });
 
-    // Send to Airtable
-    const airtableResponse = await axios.post(
-      `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`,
-      { records: allRecords },
-      {
-        headers: {
-          'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
-          'Content-Type': 'application/json'
+    // Log the records before sending
+    console.log('Records to send:', JSON.stringify(allRecords, null, 2));
+
+    // Send to Airtable in batches of 10
+    for (let i = 0; i < allRecords.length; i += 10) {
+      const batch = allRecords.slice(i, i + 10);
+      const airtableResponse = await axios.post(
+        `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`,
+        { records: batch },
+        {
+          headers: {
+            'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
+            'Content-Type': 'application/json'
+          }
         }
-      }
-    );
+      );
+      console.log(`Batch ${i/10 + 1} response:`, airtableResponse.data);
+    }
 
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: 'Data collected and sent to Airtable successfully',
-        records: allRecords
+        message: 'Success',
+        recordCount: allRecords.length
       })
     };
+
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Full error:', error.response?.data || error);
     return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message })
+      statusCode: error.response?.status || 500,
+      body: JSON.stringify({ 
+        error: error.response?.data?.error || error.message,
+        details: error.response?.data
+      })
     };
   }
 };
