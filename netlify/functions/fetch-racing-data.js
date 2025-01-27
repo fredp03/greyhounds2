@@ -34,35 +34,46 @@ exports.handler = async function(event, context) {
       });
     });
 
+    console.log('Records to send:', JSON.stringify(allRecords, null, 2));
+
+    // Send to Airtable in batches
     const BATCH_SIZE = 10;
     for (let i = 0; i < allRecords.length; i += BATCH_SIZE) {
       const batch = allRecords.slice(i, i + BATCH_SIZE);
-      await axios.post(
-        `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`,
-        { records: batch },
-        {
+      try {
+        const airtableResponse = await axios({
+          method: 'post',
+          url: `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`,
           headers: {
             'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
             'Content-Type': 'application/json'
-          }
-        }
-      );
+          },
+          data: { records: batch }
+        });
+        
+        console.log(`Batch ${Math.floor(i/BATCH_SIZE) + 1} response:`, airtableResponse.data);
+      } catch (airtableError) {
+        console.error('Airtable Error:', airtableError.response?.data || airtableError);
+        throw new Error(`Airtable batch ${Math.floor(i/BATCH_SIZE) + 1} failed: ${airtableError.message}`);
+      }
     }
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         message: 'Data sent to Airtable successfully',
-        recordCount: allRecords.length
+        recordCount: allRecords.length,
+        records: allRecords
       })
     };
 
   } catch (error) {
-    console.error('Error:', error.response?.data || error);
+    console.error('Full error:', error.response?.data || error);
     return {
       statusCode: error.response?.status || 500,
       body: JSON.stringify({ 
-        error: error.response?.data?.error || error.message 
+        error: error.response?.data?.error || error.message,
+        details: error.response?.data
       })
     };
   }
