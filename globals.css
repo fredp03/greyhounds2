@@ -16,3 +16,15 @@ button:focus-visible {
 a {
     text-decoration: none;
 }
+
+@font-face {
+    font-family: "Iowan Old Style-Roman";
+    src: local("Iowan Old Style"), local("IowanOldStyle-Roman");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+    font-weight: 400;
+}

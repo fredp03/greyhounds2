@@ -2,25 +2,35 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="globals.css" />
         <link rel="stylesheet" href="style.css" />
+        <script src="app.js"></script>
     </head>
     <body>
         <div class="hompage">
             <div class="menu-bar">
                 <div class="top-bar-data">
-                    <div class="left-side"><img class="collapse-button" src="img/collapse-button.svg" /></div>
-                    <div class="right-side"><div class="text-wrapper">Time (hh:mm)</div></div>
+                    <div class="left-side">
+                        <img class="collapse-button" src="Assets/collapse-button.png" alt="Menu" />
+                    </div>
+                    <div class="right-side">
+                        <div class="text-wrapper" id="current-time">Time (hh:mm)</div>
+                    </div>
                 </div>
             </div>
             <div class="title-and-date">
-                <div class="the-greyhounds-title"><div class="div">The Greyhounds</div></div>
-                <div class="todays-date-wrapper"><div class="todays-date">Monday, 27th of Janurary</div></div>
+                <div class="the-greyhounds-title">
+                    <div class="div">The Greyhounds</div>
+                </div>
+                <div class="todays-date-wrapper">
+                    <div class="todays-date" id="current-date">Monday, 27th of January</div>
+                </div>
             </div>
             <div class="todays-races-section">
                 <div class="today-s-races">
-                    <div class="today-s-races-title">Today’s Races</div>
-                    <img class="reload-button" src="img/reload-button.svg" />
+                    <div class="today-s-races-title">Today's Races</div>
+                    <img class="reload-button" src="Assets/reload-button.svg" alt="Reload" />
                 </div>
                 <div class="todays-races-list">
                     <div class="racetrack"><div class="racetrack-2">Romford</div></div>
