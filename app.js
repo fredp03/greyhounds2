@@ -41,10 +41,13 @@ const AIRTABLE_CONFIG = {
 };
 
 async function fetchTrapData() {
+    const reloadButton = document.querySelector('.reload-button');
+    
     try {
-        const reloadButton = document.querySelector('.reload-button');
+        // Start rotation animation
         if (reloadButton) {
             reloadButton.style.transform = 'rotate(360deg)';
+            reloadButton.style.transition = 'transform 0.5s ease';
         }
 
         const response = await fetch(
@@ -58,25 +61,52 @@ async function fetchTrapData() {
         
         const data = await response.json();
         console.log('Airtable Data:', data);
+        
+        // Process and update UI with the fetched data
+        updateRacetracks(data);
 
-        // Reset reload button after fetch
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    } finally {
+        // Reset button after animation
         setTimeout(() => {
             if (reloadButton) {
                 reloadButton.style.transform = 'rotate(0deg)';
+                reloadButton.style.transition = 'none';
             }
         }, 500);
-
-        return data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
     }
+}
+
+function updateRacetracks(data) {
+    const racetracksList = document.querySelector('.todays-races-list');
+    if (!racetracksList || !data.records) return;
+
+    // Clear existing racetracks
+    racetracksList.innerHTML = '';
+
+    // Add racetracks from Airtable data
+    data.records.forEach(record => {
+        if (record.fields.Racetrack) {
+            const racetrackDiv = document.createElement('div');
+            racetrackDiv.className = 'racetrack';
+            racetrackDiv.innerHTML = `<div class="racetrack-2">${record.fields.Racetrack}</div>`;
+            
+            // Add click handler for each racetrack
+            racetrackDiv.addEventListener('click', () => {
+                console.log(`Selected racetrack: ${record.fields.Racetrack}`);
+                // Add navigation logic here
+            });
+            
+            racetracksList.appendChild(racetrackDiv);
+        }
+    });
 }
 
 // ==========================================
 // 3. Event Listeners
 // ==========================================
 function initializeEventListeners() {
-    // Reload button click handler
     const reloadButton = document.querySelector('.reload-button');
     if (reloadButton) {
         reloadButton.addEventListener('click', fetchTrapData);
@@ -99,4 +129,6 @@ window.onload = function() {
     updateDateTime();
     setInterval(updateDateTime, 60000);
     initializeEventListeners();
+    // Initial data fetch
+    fetchTrapData();
 }
