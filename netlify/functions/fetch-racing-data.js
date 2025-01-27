@@ -22,7 +22,6 @@ exports.handler = async function(event, context) {
           const trackId = href.split('/')[6];
           const time = span.text();
           
-          // Convert all values to strings for long text fields
           allRecords.push({
             fields: {
               "Track": String(trackName || ''),
@@ -35,7 +34,6 @@ exports.handler = async function(event, context) {
       });
     });
 
-    // Send to Airtable in batches of 10
     const BATCH_SIZE = 10;
     for (let i = 0; i < allRecords.length; i += BATCH_SIZE) {
       const batch = allRecords.slice(i, i + BATCH_SIZE);

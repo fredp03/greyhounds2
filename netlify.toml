@@ -1,11 +1,10 @@
 [build]
   functions = "netlify/functions"
-  publish = "."
+  publish = "public"
 
 [dev]
   functions = "netlify/functions"
-  publish = "."
-  
+  publish = "public"
 [[redirects]]
   from = "/*"
   to = "/index.html"

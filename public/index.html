@@ -3,16 +3,16 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="style.css" />
-        <script src="app.js"></script>
+        <link rel="stylesheet" href="/styles/globals.css" />
+        <link rel="stylesheet" href="/styles/style.css" />
+        <script src="/app.js"></script>
     </head>
     <body>
         <div class="hompage">
             <div class="menu-bar">
                 <div class="top-bar-data">
                     <div class="left-side">
-                        <img class="collapse-button" src="Assets/collapse-button.png" alt="Menu" />
+                        <img class="collapse-button" src="/assets/collapse-button.png" alt="Menu" />
                     </div>
                     <div class="right-side">
                         <div class="text-wrapper" id="current-time">Time (hh:mm)</div>
@@ -30,7 +30,7 @@
             <div class="todays-races-section">
                 <div class="today-s-races">
                     <div class="today-s-races-title">Today's Races</div>
-                    <img class="reload-button" src="Assets/reload-button.svg" alt="Reload" />
+                    <img class="reload-button" src="/assets/reload-button.svg" alt="Reload" onclick="fetchData()" />
                 </div>
                 <div class="todays-races-list">
                     <div class="racetrack"><div class="racetrack-2">Romford</div></div>

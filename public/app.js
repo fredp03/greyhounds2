@@ -40,35 +40,25 @@ const AIRTABLE_CONFIG = {
     TOKEN: 'paty7Qv08vE2qnSi2.093f8d0babdff82da158705528f98fb7f870d984d67d14c2475c1b7c8ea49fef'
 };
 
-async function fetchTrapData() {
+async function fetchData() {
     const reloadButton = document.querySelector('.reload-button');
-    
     try {
-        // Start rotation animation
         if (reloadButton) {
             reloadButton.style.transform = 'rotate(360deg)';
             reloadButton.style.transition = 'transform 0.5s ease';
         }
 
-        const response = await fetch(
-            `https://api.airtable.com/v0/${AIRTABLE_CONFIG.BASE_ID}/${AIRTABLE_CONFIG.TABLE_ID}`,
-            {
-                headers: {
-                    'Authorization': `Bearer ${AIRTABLE_CONFIG.TOKEN}`
-                }
-            }
-        );
-        
+        const response = await fetch('/.netlify/functions/fetch-racing-data');
         const data = await response.json();
-        console.log('Airtable Data:', data);
         
-        // Process and update UI with the fetched data
-        updateRacetracks(data);
-
+        if (!response.ok) throw new Error(data.error || 'Function call failed');
+        
+        console.log('Response:', data);
+        alert('Data collected successfully!');
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error:', error);
+        alert('Error: ' + error.message);
     } finally {
-        // Reset button after animation
         setTimeout(() => {
             if (reloadButton) {
                 reloadButton.style.transform = 'rotate(0deg)';
