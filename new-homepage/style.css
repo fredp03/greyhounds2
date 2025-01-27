@@ -1,0 +1,206 @@
+.hompage {
+    display: flex;
+    flex-direction: column;
+    min-height: 1080px;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.hompage .menu-bar {
+    display: flex;
+    flex-direction: column;
+    height: 45px;
+    align-items: center;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+}
+
+.hompage .top-bar-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    width: 100%;
+    flex-grow: 1;
+    box-shadow: 0px 5px 6.3px #00000040;
+    background-image: url(./img/top-bar-data.png);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.hompage .left-side {
+    display: flex;
+    width: 783px;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+.hompage .collapse-button {
+    position: relative;
+    width: 12px;
+    height: 18px;
+}
+
+.hompage .right-side {
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.hompage .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.hompage .title-and-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 43px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.hompage .the-greyhounds-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 15px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.hompage .div {
+    position: relative;
+    flex: 1;
+    margin-top: -1.00px;
+    font-family: "Iowan Old Style-Roman", Helvetica;
+    font-weight: 400;
+    color: #4e4e4e;
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.hompage .todays-date-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 15px 102px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.hompage .todays-date {
+    position: relative;
+    flex: 1;
+    margin-top: -1.00px;
+    font-family: "Iowan Old Style-Roman", Helvetica;
+    font-weight: 400;
+    color: #4e4e4e;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.hompage .todays-races-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 41px;
+    padding: 113px 15px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+}
+
+.hompage .today-s-races {
+    display: flex;
+    flex-direction: column;
+    width: 292px;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.hompage .today-s-races-title {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-family: "Iowan Old Style-Roman", Helvetica;
+    font-weight: 400;
+    color: #4e4e4e;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.hompage .reload-button {
+    position: relative;
+    width: 13px;
+    height: 20px;
+}
+
+.hompage .todays-races-list {
+    display: inline-flex;
+    align-items: center;
+    gap: 49px;
+    padding: 30px 15px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.hompage .racetrack {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 27px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px #00000026;
+}
+
+.hompage .racetrack-2 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-family: "Iowan Old Style-Roman", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+}

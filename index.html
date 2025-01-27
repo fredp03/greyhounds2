@@ -4,26 +4,29 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="globals.css" />
         <link rel="stylesheet" href="style.css" />
-        <script>
-        async function fetchData() {
-            try {
-                const response = await fetch('/.netlify/functions/fetch-racing-data');
-                if (!response.ok) throw new Error('Function call failed');
-                const data = await response.json();
-                alert('Data collected successfully!');
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error collecting data');
-            }
-        }
-        </script>
     </head>
     <body>
-        <div class="webpage">
-            <div class="page-info">
-                <div class="title">Test Homepage</div>
-                <div class="collect-data-button" onclick="fetchData()">
-                    <div class="text-wrapper">Collect Data</div>
+        <div class="hompage">
+            <div class="menu-bar">
+                <div class="top-bar-data">
+                    <div class="left-side"><img class="collapse-button" src="img/collapse-button.svg" /></div>
+                    <div class="right-side"><div class="text-wrapper">Time (hh:mm)</div></div>
+                </div>
+            </div>
+            <div class="title-and-date">
+                <div class="the-greyhounds-title"><div class="div">The Greyhounds</div></div>
+                <div class="todays-date-wrapper"><div class="todays-date">Monday, 27th of Janurary</div></div>
+            </div>
+            <div class="todays-races-section">
+                <div class="today-s-races">
+                    <div class="today-s-races-title">Today’s Races</div>
+                    <img class="reload-button" src="img/reload-button.svg" />
+                </div>
+                <div class="todays-races-list">
+                    <div class="racetrack"><div class="racetrack-2">Romford</div></div>
+                    <div class="racetrack"><div class="racetrack-2">Harlow</div></div>
+                    <div class="racetrack"><div class="racetrack-2">Hove</div></div>
+                    <div class="racetrack"><div class="racetrack-2">Crayford</div></div>
                 </div>
             </div>
         </div>
