@@ -1,224 +1,139 @@
-.hompage {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    align-items: center;
-    gap: 40px;
-    position: relative;
-    background-color: #ffffff;
-}
-
-.menu-bar {
-    display: flex;
-    flex-direction: column;
-    height: 45px;
-    align-items: center;
-    position: relative;
-    align-self: stretch;
-    width: 100%;
-}
-
-.top-bar-data {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 20px;
-    position: relative;
-    flex: 1;
-    align-self: stretch;
-    width: 100%;
-    flex-grow: 1;
-    box-shadow: 0px 5px 6.3px #00000040;
-    background-color: #ececec;
-}
-
-.left-side {
-    display: flex;
-    width: 783px;
-    align-items: center;
-    gap: 30px;
-    position: relative;
-}
-
-.collapse-button {
-    width: 24px;
-    height: 24px;
-}
-
-.right-side {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-}
-
-.text-wrapper {
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 16px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.title-and-date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-    align-self: stretch;
-}
-
-.the-greyhounds-title {
-    display: flex;
-    width: 350px;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    position: relative;
-    background-color: #ececec;
-    border-radius: 5px;
-}
-
-.todays-date-wrapper {
-    display: flex;
-    width: 350px;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    position: relative;
-    background-color: #ececec;
-    border-radius: 5px;
-}
-
-.todays-races-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    position: relative;
-    align-self: stretch;
-}
-
-.today-s-races {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 20px;
-    position: relative;
-    align-self: stretch;
-}
-
-.today-s-races-title {
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 24px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.reload-button {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-
-.todays-races-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 0px 20px;
-    position: relative;
-    align-self: stretch;
-}
-
-.racetrack {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    position: relative;
-    align-self: stretch;
-    background-color: #ececec;
-    border-radius: 5px;
-}
-
-.filter-options-container {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    margin-top: auto;
-    z-index: 100;
-}
-
 .box {
     position: relative;
-    width: 100%;
-    min-height: 192px;
-    background-color: #ffffff;
-    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px 5px 0 0;
+    width: 100%; /* Changed from fixed width */
+    min-height: 192px; /* Changed from fixed height */
+    height: auto; /* Added to allow expansion */
 }
 
-.filter-options {
-    padding: 20px;
+.box .filter-options {
+    position: absolute; /* Changed from fixed */
+    width: 100%; /* Changed from fixed width */
+    min-height: 192px; /* Changed from fixed height */
+    height: auto; /* Added to allow expansion */
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    overflow: visible; /* Changed from hidden */
+    border: 0px dashed;
+    border-color: #9747ff;
 }
 
-.filter-collapse {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+.box .property-opened,
+.box .property-folded {
+    position: absolute;
+    left: 20px;
+    transition: opacity 0.3s ease;
 }
 
-.icon-navigation-menu {
+.box .property-opened {
+    width: calc(100% - 40px); /* Adjusted to account for fixed collapse button */
+    display: flex; /* Changed from inline-flex */
+    flex-wrap: wrap; /* Added to allow multiple rows */
+    justify-content: flex-start; /* Added to distribute items */
+    align-items: flex-start; /* Changed from center */
+    gap: 23px;
+    padding: 15px 15px 15px 54px; /* Adjusted left padding to make room for collapse button */
+    opacity: 1;
+}
+
+.box .property-folded {
+    top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 23px;
+    padding: 15px 15px 15px 54px; /* Adjusted left padding to match opened state */
+    opacity: 0;
+    pointer-events: none;
+}
+
+.box .filter-options.collapsed .property-opened {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.box .filter-options.collapsed .property-folded {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.box .filter-collapse {
+    position: fixed; /* Changed from relative */
     width: 24px;
     height: 24px;
-    transform: rotate(180deg);
+    transform: rotate(90deg);
+    left: 20px; /* Added */
+    top: 20px;  /* Added */
+    z-index: 1; /* Added to ensure it stays on top */
 }
 
-.collapsed .icon-navigation-menu {
-    transform: rotate(0deg);
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.box .icon-navigation-menu {
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    top: 3px;
+    left: 6px;
+    transform: rotate(-90deg);
 }
 
-body {
-    margin: 0;
+/* Replace dropdown field styles with new ones */
+.box .property-inactive,
+.box .property-active {
+    flex: 0 0 auto; /* Added to prevent stretching */
+    display: flex;
+    align-items: center;
+    width: 188px;
+    max-width: 270px;
+    border-radius: 9px;
+    background: linear-gradient(
+        180deg,
+        rgba(181.09, 181.09, 181.09, 0) 88.5%,
+        rgba(181.09, 181.09, 181.09, 0.2) 100%
+    );
+    box-shadow: inset -4px 0px 3.5px rgba(0, 0, 0, 0.04),
+                -1px 3px 13.8px rgba(111, 111, 111, 0.25),
+                0px 4px 4px rgba(0, 0, 0, 0.09);
+    transition: padding 0.3s ease, background 0.3s ease;
+}
+
+.box .property-inactive {
+    padding: 4px 20px;
+}
+
+.box .property-active {
+    padding: 4px 20px;
+}
+
+.box .checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.box .track-name-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px 12px;
+    position: relative;
+    flex: 1;
+    opacity: 0.82;
+}
+
+.box .text-wrapper {
+    position: relative;
+    flex: 1;
+    margin-top: -1px;
+    font-family: "Iowan Old Style-Roman", Helvetica;
+    font-weight: 400;
+    color: #4f4f4f;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 0.6px;
     line-height: normal;
 }
 
-:root {
-    /* fonts */
-    --font-inter: Inter;
-
-    /* font sizes */
-    --font-size-base: 16px;
-    --font-size-lg: 24px;
-
-    /* Colors */
-    --color-white: #fff;
-    --color-black: #000;
-    --color-gray: #ececec;
-
-    /* Gaps */
-    --gap-xs: 10px;
-    --gap-sm: 20px;
-    --gap-md: 30px;
-    --gap-lg: 40px;
-
-    /* Paddings */
-    --padding-xs: 10px;
-    --padding-sm: 20px;
-
-    /* border radiuses */
-    --br-xs: 5px;
+.property-inactive:hover,
+.property-active:hover {
+    cursor: pointer;
+    opacity: 0.9;
 }
