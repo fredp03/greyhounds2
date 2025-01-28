@@ -1,139 +1,103 @@
+.hompage {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.menu-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.top-bar-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ececec;
+    box-shadow: 0px 5px 6.3px rgba(0, 0, 0, 0.25);
+}
+
+.title-and-date {
+    margin-top: 60px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.the-greyhounds-title,
+.todays-date-wrapper {
+    width: 350px;
+    padding: 10px;
+    background-color: #ececec;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.todays-races-section {
+    flex: 1;
+    padding: 0 20px;
+    margin-bottom: 200px;
+}
+
+.today-s-races {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.todays-races-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.racetrack {
+    padding: 15px;
+    background-color: #ececec;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.filter-options-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .box {
     position: relative;
-    width: 100%; /* Changed from fixed width */
-    min-height: 192px; /* Changed from fixed height */
-    height: auto; /* Added to allow expansion */
+    width: 100%;
+    min-height: 192px;
 }
 
-.box .filter-options {
-    position: absolute; /* Changed from fixed */
-    width: 100%; /* Changed from fixed width */
-    min-height: 192px; /* Changed from fixed height */
-    height: auto; /* Added to allow expansion */
-    top: 0;
-    left: 0;
-    border-radius: 5px;
-    overflow: visible; /* Changed from hidden */
-    border: 0px dashed;
-    border-color: #9747ff;
+.filter-options {
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px 5px 0 0;
 }
 
-.box .property-opened,
-.box .property-folded {
-    position: absolute;
-    left: 20px;
-    transition: opacity 0.3s ease;
+.property-opened {
+    display: flex;
+    justify-content: center;
 }
 
-.box .property-opened {
-    width: calc(100% - 40px); /* Adjusted to account for fixed collapse button */
-    display: flex; /* Changed from inline-flex */
-    flex-wrap: wrap; /* Added to allow multiple rows */
-    justify-content: flex-start; /* Added to distribute items */
-    align-items: flex-start; /* Changed from center */
-    gap: 23px;
-    padding: 15px 15px 15px 54px; /* Adjusted left padding to make room for collapse button */
-    opacity: 1;
-}
-
-.box .property-folded {
-    top: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 23px;
-    padding: 15px 15px 15px 54px; /* Adjusted left padding to match opened state */
-    opacity: 0;
-    pointer-events: none;
-}
-
-.box .filter-options.collapsed .property-opened {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.box .filter-options.collapsed .property-folded {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.box .filter-collapse {
-    position: fixed; /* Changed from relative */
+.reload-button {
     width: 24px;
     height: 24px;
-    transform: rotate(90deg);
-    left: 20px; /* Added */
-    top: 20px;  /* Added */
-    z-index: 1; /* Added to ensure it stays on top */
-}
-
-.box .icon-navigation-menu {
-    position: absolute;
-    width: 12px;
-    height: 18px;
-    top: 3px;
-    left: 6px;
-    transform: rotate(-90deg);
-}
-
-/* Replace dropdown field styles with new ones */
-.box .property-inactive,
-.box .property-active {
-    flex: 0 0 auto; /* Added to prevent stretching */
-    display: flex;
-    align-items: center;
-    width: 188px;
-    max-width: 270px;
-    border-radius: 9px;
-    background: linear-gradient(
-        180deg,
-        rgba(181.09, 181.09, 181.09, 0) 88.5%,
-        rgba(181.09, 181.09, 181.09, 0.2) 100%
-    );
-    box-shadow: inset -4px 0px 3.5px rgba(0, 0, 0, 0.04),
-                -1px 3px 13.8px rgba(111, 111, 111, 0.25),
-                0px 4px 4px rgba(0, 0, 0, 0.09);
-    transition: padding 0.3s ease, background 0.3s ease;
-}
-
-.box .property-inactive {
-    padding: 4px 20px;
-}
-
-.box .property-active {
-    padding: 4px 20px;
-}
-
-.box .checkbox {
-    width: 16px;
-    height: 16px;
-}
-
-.box .track-name-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 0px 12px;
-    position: relative;
-    flex: 1;
-    opacity: 0.82;
-}
-
-.box .text-wrapper {
-    position: relative;
-    flex: 1;
-    margin-top: -1px;
-    font-family: "Iowan Old Style-Roman", Helvetica;
-    font-weight: 400;
-    color: #4f4f4f;
-    font-size: 12px;
-    text-align: center;
-    letter-spacing: 0.6px;
-    line-height: normal;
-}
-
-.property-inactive:hover,
-.property-active:hover {
     cursor: pointer;
-    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+.reload-button:active {
+    transform: rotate(360deg);
 }
