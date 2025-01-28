@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="globals.css" />
+        <link rel="stylesheet" href="styleguide.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="box">
+            <div class="filter-options">
+                <div class="property-opened" id="filter-container">
+                    <div class="filter-collapse" onclick="toggleCollapse(this)">
+                        <img class="icon-navigation-menu" src="img/filter-collapse-button.svg" />
+                    </div>
+                    <!-- Filter options will be inserted here -->
+                </div>
+                <div class="property-folded">
+                    <div class="filter-collapse" onclick="toggleCollapse(this)">
+                        <img class="icon-navigation-menu" src="img/filter-collapse-button.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="number-of-races.js"></script>
+        <script>
+            function toggleState(element) {
+                const checkbox = element.querySelector('.checkbox');
+                
+                if (element.classList.contains('property-inactive')) {
+                    element.classList.remove('property-inactive');
+                    element.classList.add('property-active');
+                    checkbox.src = "img/checkbox.png";
+                } else {
+                    element.classList.remove('property-active');
+                    element.classList.add('property-inactive');
+                    checkbox.src = "img/image.svg";
+                }
+            }
+
+            function toggleCollapse(element) {
+                const filterOptions = element.closest('.filter-options');
+                filterOptions.classList.toggle('collapsed');
+            }
+        </script>
+    </body>
+</html>

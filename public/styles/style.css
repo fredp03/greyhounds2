@@ -1,17 +1,14 @@
-/* ==========================================
-   1. General Layout
-   ========================================== */
 .hompage {
     display: flex;
     flex-direction: column;
-    min-height: 1080px;
+    min-height: 100vh;
     align-items: center;
     gap: 40px;
     position: relative;
     background-color: #ffffff;
 }
 
-.hompage .menu-bar {
+.menu-bar {
     display: flex;
     flex-direction: column;
     height: 45px;
@@ -21,7 +18,7 @@
     width: 100%;
 }
 
-.hompage .top-bar-data {
+.top-bar-data {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,7 +32,7 @@
     background-color: #ececec;
 }
 
-.hompage .left-side {
+.left-side {
     display: flex;
     width: 783px;
     align-items: center;
@@ -43,185 +40,185 @@
     position: relative;
 }
 
-.hompage .collapse-button {
-    position: relative;
-    width: 12px;
-    height: 18px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+.collapse-button {
+    width: 24px;
+    height: 24px;
 }
 
-.hompage .collapse-button:hover {
-    transform: scale(1.1);
-}
-
-.hompage .right-side {
-    display: inline-flex;
+.right-side {
+    display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 10px;
     position: relative;
-    flex: 0 0 auto;
 }
 
-.hompage .text-wrapper {
-    position: relative;
-    width: fit-content;
-    margin-top: -1.00px;
+.text-wrapper {
     font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 15px;
-    letter-spacing: 0;
-    line-height: normal;
-    white-space: nowrap;
-}
-
-.hompage .title-and-date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 43px;
-    position: relative;
-    align-self: stretch;
-    width: 100%;
-    flex: 0 0 auto;
-}
-
-.hompage .the-greyhounds-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-    padding: 15px;
-    position: relative;
-    align-self: stretch;
-    width: 100%;
-    flex: 0 0 auto;
-}
-
-.hompage .div {
-    position: relative;
-    flex: 1;
-    margin-top: -1.00px;
-    font-family: "Iowan Old Style-Roman", Helvetica;
-    font-weight: 400;
-    color: #4e4e4e;
-    font-size: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.hompage .todays-date-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-    padding: 15px 102px;
-    position: relative;
-    align-self: stretch;
-    width: 100%;
-    flex: 0 0 auto;
-}
-
-.hompage .todays-date {
-    position: relative;
-    flex: 1;
-    margin-top: -1.00px;
-    font-family: "Iowan Old Style-Roman", Helvetica;
-    font-weight: 400;
-    color: #4e4e4e;
-    font-size: 24px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.hompage .todays-races-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 41px;
-    padding: 113px 15px;
-    position: relative;
-    align-self: stretch;
-    width: 100%;
-    flex: 0 0 auto;
-    background-color: #ffffff;
-}
-
-.hompage .today-s-races {
-    display: flex;
-    flex-direction: column;
-    width: 292px;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    position: relative;
-    flex: 0 0 auto;
-}
-
-.hompage .today-s-races-title {
-    position: relative;
-    width: fit-content;
-    margin-top: -1.00px;
-    font-family: "Iowan Old Style-Roman", Helvetica;
-    font-weight: 400;
-    color: #4e4e4e;
-    font-size: 32px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.hompage .reload-button {
-    position: relative;
-    width: 13px;
-    height: 20px;
-    cursor: pointer;
-    transition: transform 0.5s ease;
-}
-
-.hompage .reload-button:hover {
-    opacity: 0.8;
-    transform: rotate(180deg);
-}
-
-.hompage .todays-races-list {
-    display: inline-flex;
-    align-items: center;
-    gap: 49px;
-    padding: 30px 15px;
-    position: relative;
-    flex: 0 0 auto;
-}
-
-.hompage .racetrack {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 5px 27px;
-    position: relative;
-    flex: 0 0 auto;
-    background-color: #ffffff;
-    border-radius: 3px;
-    box-shadow: 0px 4px 4px #00000026;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.hompage .racetrack:hover {
-    transform: translateY(-2px);
-    box-shadow: 0px 6px 6px #00000040;
-}
-
-.hompage .racetrack-2 {
-    position: relative;
-    width: fit-content;
-    margin-top: -1.00px;
-    font-family: "Iowan Old Style-Roman", Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 16px;
     letter-spacing: 0;
     line-height: normal;
+}
+
+.title-and-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    align-self: stretch;
+}
+
+.the-greyhounds-title {
+    display: flex;
+    width: 350px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: relative;
+    background-color: #ececec;
+    border-radius: 5px;
+}
+
+.todays-date-wrapper {
+    display: flex;
+    width: 350px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: relative;
+    background-color: #ececec;
+    border-radius: 5px;
+}
+
+.todays-races-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    align-self: stretch;
+}
+
+.today-s-races {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    position: relative;
+    align-self: stretch;
+}
+
+.today-s-races-title {
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.reload-button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.todays-races-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0px 20px;
+    position: relative;
+    align-self: stretch;
+}
+
+.racetrack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    align-self: stretch;
+    background-color: #ececec;
+    border-radius: 5px;
+}
+
+.filter-options-container {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+    z-index: 100;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    min-height: 192px;
+    background-color: #ffffff;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px 5px 0 0;
+}
+
+.filter-options {
+    padding: 20px;
+}
+
+.filter-collapse {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.icon-navigation-menu {
+    width: 24px;
+    height: 24px;
+    transform: rotate(180deg);
+}
+
+.collapsed .icon-navigation-menu {
+    transform: rotate(0deg);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    line-height: normal;
+}
+
+:root {
+    /* fonts */
+    --font-inter: Inter;
+
+    /* font sizes */
+    --font-size-base: 16px;
+    --font-size-lg: 24px;
+
+    /* Colors */
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray: #ececec;
+
+    /* Gaps */
+    --gap-xs: 10px;
+    --gap-sm: 20px;
+    --gap-md: 30px;
+    --gap-lg: 40px;
+
+    /* Paddings */
+    --padding-xs: 10px;
+    --padding-sm: 20px;
+
+    /* border radiuses */
+    --br-xs: 5px;
 }
