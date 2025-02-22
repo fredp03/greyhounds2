@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="/greyhound-page/globals.css" />
+    <link rel="stylesheet" href="/greyhound-page/style.css" />
+    <script src="/greyhound-page/app.js"></script>
   </head>
   <body>
     <div class="full-screen">
@@ -13,14 +13,18 @@
       <div id="menuBar" class="property-closed">
         <!-- Closed State Navigation -->
         <div id="closedState" class="left-side">
-          <img class="home-button" src="Assets/home-button.png" alt="Home" />
-          <img class="collapse-button" src="Assets/collapse-button.png" alt="Open Menu" />
+          <a href="/" class="home-button">
+            <img src="/assets/home-button.png" alt="Home" />
+          </a>
+          <img class="collapse-button" src="/assets/collapse-button.png" alt="Open Menu" />
         </div>
         
         <!-- Open State Navigation -->
         <div id="openState" class="navbar" style="display: none;">
-          <img class="home-button" src="Assets/home-button.png" alt="Home" />
-          <img class="colapse-races" src="Assets/collapse-button.png" alt="Close Menu" />
+          <a href="/" class="home-button">
+            <img src="/assets/home-button.png" alt="Home" />
+          </a>
+          <img class="colapse-races" src="/assets/collapse-button.png" alt="Close Menu" />
           <!-- Race Menu Items -->
           <div class="navbar-content">
             <div class="text-wrapper">Race 1</div>
