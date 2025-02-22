@@ -35,6 +35,20 @@ Buttons
   position: relative;
   width: 18px;
   height: 18.73px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px; /* Add spacing from the time */
+}
+
+.home-button img {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.home-button:hover img {
+  transform: scale(1.1);
 }
 
 .colapse-races, 
@@ -242,11 +256,12 @@ Buttons
   max-width: 601px;
   align-items: center;
   justify-content: flex-end;
-  gap: 40px;
+  gap: 20px;
   position: relative;
   flex: 1;
   flex-grow: 1;
   font-size: 15px;
+  padding-right: 20px;
 }
 
 .right-side .div {
